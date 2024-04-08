@@ -1,0 +1,28 @@
+C:\Users\trungnt\Source\Repos\DoAnLTDT_PKMT\bin\Debug\net6.0\DA_LTDT_PKMT_1.exe
+C:\Users\trungnt\Source\Repos\DoAnLTDT_PKMT\bin\Debug\net6.0\DA_LTDT_PKMT_1.deps.json
+C:\Users\trungnt\Source\Repos\DoAnLTDT_PKMT\bin\Debug\net6.0\DA_LTDT_PKMT_1.runtimeconfig.json
+C:\Users\trungnt\Source\Repos\DoAnLTDT_PKMT\bin\Debug\net6.0\DA_LTDT_PKMT_1.dll
+C:\Users\trungnt\Source\Repos\DoAnLTDT_PKMT\bin\Debug\net6.0\DA_LTDT_PKMT_1.pdb
+C:\Users\trungnt\Source\Repos\DoAnLTDT_PKMT\obj\Debug\net6.0\DA_LTDT_PKMT_1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\trungnt\Source\Repos\DoAnLTDT_PKMT\obj\Debug\net6.0\DA_LTDT_PKMT_1.AssemblyInfoInputs.cache
+C:\Users\trungnt\Source\Repos\DoAnLTDT_PKMT\obj\Debug\net6.0\DA_LTDT_PKMT_1.AssemblyInfo.cs
+C:\Users\trungnt\Source\Repos\DoAnLTDT_PKMT\obj\Debug\net6.0\DA_LTDT_PKMT_1.csproj.CoreCompileInputs.cache
+C:\Users\trungnt\Source\Repos\DoAnLTDT_PKMT\obj\Debug\net6.0\DA_LTDT_PKMT_1.dll
+C:\Users\trungnt\Source\Repos\DoAnLTDT_PKMT\obj\Debug\net6.0\refint\DA_LTDT_PKMT_1.dll
+C:\Users\trungnt\Source\Repos\DoAnLTDT_PKMT\obj\Debug\net6.0\DA_LTDT_PKMT_1.pdb
+C:\Users\trungnt\Source\Repos\DoAnLTDT_PKMT\obj\Debug\net6.0\DA_LTDT_PKMT_1.genruntimeconfig.cache
+C:\Users\trungnt\Source\Repos\DoAnLTDT_PKMT\obj\Debug\net6.0\ref\DA_LTDT_PKMT_1.dll
+E:\01. LEARN\02. HCMUS\Ky II\II.4. LÝ THUYẾT ĐỒ THỊ\30. DO AN\DA_REV3\DoAnLTDT_PKMT\bin\Debug\net6.0\DA_LTDT_PKMT_1.exe
+E:\01. LEARN\02. HCMUS\Ky II\II.4. LÝ THUYẾT ĐỒ THỊ\30. DO AN\DA_REV3\DoAnLTDT_PKMT\bin\Debug\net6.0\DA_LTDT_PKMT_1.deps.json
+E:\01. LEARN\02. HCMUS\Ky II\II.4. LÝ THUYẾT ĐỒ THỊ\30. DO AN\DA_REV3\DoAnLTDT_PKMT\bin\Debug\net6.0\DA_LTDT_PKMT_1.runtimeconfig.json
+E:\01. LEARN\02. HCMUS\Ky II\II.4. LÝ THUYẾT ĐỒ THỊ\30. DO AN\DA_REV3\DoAnLTDT_PKMT\bin\Debug\net6.0\DA_LTDT_PKMT_1.dll
+E:\01. LEARN\02. HCMUS\Ky II\II.4. LÝ THUYẾT ĐỒ THỊ\30. DO AN\DA_REV3\DoAnLTDT_PKMT\bin\Debug\net6.0\DA_LTDT_PKMT_1.pdb
+E:\01. LEARN\02. HCMUS\Ky II\II.4. LÝ THUYẾT ĐỒ THỊ\30. DO AN\DA_REV3\DoAnLTDT_PKMT\obj\Debug\net6.0\DA_LTDT_PKMT_1.GeneratedMSBuildEditorConfig.editorconfig
+E:\01. LEARN\02. HCMUS\Ky II\II.4. LÝ THUYẾT ĐỒ THỊ\30. DO AN\DA_REV3\DoAnLTDT_PKMT\obj\Debug\net6.0\DA_LTDT_PKMT_1.AssemblyInfoInputs.cache
+E:\01. LEARN\02. HCMUS\Ky II\II.4. LÝ THUYẾT ĐỒ THỊ\30. DO AN\DA_REV3\DoAnLTDT_PKMT\obj\Debug\net6.0\DA_LTDT_PKMT_1.AssemblyInfo.cs
+E:\01. LEARN\02. HCMUS\Ky II\II.4. LÝ THUYẾT ĐỒ THỊ\30. DO AN\DA_REV3\DoAnLTDT_PKMT\obj\Debug\net6.0\DA_LTDT_PKMT_1.csproj.CoreCompileInputs.cache
+E:\01. LEARN\02. HCMUS\Ky II\II.4. LÝ THUYẾT ĐỒ THỊ\30. DO AN\DA_REV3\DoAnLTDT_PKMT\obj\Debug\net6.0\DA_LTDT_PKMT_1.dll
+E:\01. LEARN\02. HCMUS\Ky II\II.4. LÝ THUYẾT ĐỒ THỊ\30. DO AN\DA_REV3\DoAnLTDT_PKMT\obj\Debug\net6.0\refint\DA_LTDT_PKMT_1.dll
+E:\01. LEARN\02. HCMUS\Ky II\II.4. LÝ THUYẾT ĐỒ THỊ\30. DO AN\DA_REV3\DoAnLTDT_PKMT\obj\Debug\net6.0\DA_LTDT_PKMT_1.pdb
+E:\01. LEARN\02. HCMUS\Ky II\II.4. LÝ THUYẾT ĐỒ THỊ\30. DO AN\DA_REV3\DoAnLTDT_PKMT\obj\Debug\net6.0\DA_LTDT_PKMT_1.genruntimeconfig.cache
+E:\01. LEARN\02. HCMUS\Ky II\II.4. LÝ THUYẾT ĐỒ THỊ\30. DO AN\DA_REV3\DoAnLTDT_PKMT\obj\Debug\net6.0\ref\DA_LTDT_PKMT_1.dll
