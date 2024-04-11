@@ -47,6 +47,58 @@ namespace DA_LTDT_PKMT_1
             return MaTran_DoThi;
         }
 
+        //CONVERT TẬP TIN THÀNH DANH SÁCH KỀ
+        public static List<int>[]? ChuyenTapTinThanhDanhSachKe(string DuongDanTapTin)
+        {
+            if (!File.Exists(DuongDanTapTin))
+            {
+                Console.WriteLine("Khong tim thay tap tin.");
+                return null;
+            }
+        
+            string? Dong;
+            StreamReader sr = new StreamReader(DuongDanTapTin);
+        
+            // Đọc dòng đầu tiên của tập tin
+            Dong = sr.ReadLine();
+            int SoDinh = int.Parse(Dong);
+        
+            // Khởi tạo danh sách kề
+            List<int>[] DanhSachKe = new List<int>[SoDinh];
+            for (int i = 0; i < SoDinh; i++)
+            {
+                DanhSachKe[i] = new List<int>();
+            }
+        
+            // Đọc dòng kế tiếp, tạo vòng lặp cho đến dòng cuối
+            Dong = sr.ReadLine();
+        
+            int u = 0;
+            while (Dong != null)
+            {
+                string[] list = Dong.Split(' ');
+                int SoDinhKe = int.Parse(list[0]);
+                if (SoDinhKe == 0)
+                {
+                    Dong = sr.ReadLine();
+                    continue;
+                }
+                for (int i = 1; i < list.Length; i = i + 2)
+                {
+                    int v = int.Parse(list[i]);
+                    DanhSachKe[u].Add(v);
+                }
+                
+                u++;
+                Dong = sr.ReadLine();
+            }
+        
+            // Đóng tập tin
+            sr.Close();
+        
+            return DanhSachKe;
+        }
+
         //IN MA TRẬN RA MÀN HÌNH
         public static void XuatMaTranDoThi(int[,] MaTran_DoThi)
         {
