@@ -23,21 +23,21 @@ namespace DA_LTDT_PKMT_1
             int[,] MaTran_DoThi = new int[n, n]; //Tạo ma trận kề [n x n]
 
             for (int i = 1; i <= n; i++)
-{
-    string[] Dinh = lines[i].Split(' ');
-    int soluongDinhke = int.Parse(Dinh[0]);
-
-    for (int j = 1; j < Dinh.Length; j += 2)
-    {
-        int Dinhke = int.Parse(Dinh[j]);
-        int Trongso = 1; //Mặc định trọng số là 1
-        if (j + 1 < Dinh.Length)
-        {
-            Trongso = int.Parse(Dinh[j + 1]);
-        }
-        MaTran_DoThi[i - 1, Dinhke] = Trongso; //Đặt trọng số
-    }
-}
+            {
+                string[] Dinh = lines[i].Split(' ');
+                int soluongDinhke = int.Parse(Dinh[0]);
+            
+                for (int j = 1; j < Dinh.Length; j += 2)
+                {
+                    int Dinhke = int.Parse(Dinh[j]);
+                    int Trongso = 1; //Mặc định trọng số là 1
+                    if (j + 1 < Dinh.Length)
+                    {
+                        Trongso = int.Parse(Dinh[j + 1]);
+                    }
+                    MaTran_DoThi[i - 1, Dinhke] = Trongso; //Đặt trọng số
+                }
+            }
             return MaTran_DoThi;
         }
 
@@ -149,14 +149,35 @@ namespace DA_LTDT_PKMT_1
         //KIỂM TRA ĐỒ THỊ CÓ HƯỚNG HOẶC VÔ HƯỚNG
         public static bool DoThiCoHuong(int[,] MaTran_DoThi)
         {
-            //Viết hàm kiểm tra
-            return true;
+            int soluongDinh = MaTran_DoThi.GetLength(0);
+            for (int i = 0; i < soluongDinh; i++)
+            {
+                for (int j = 0; j < soluongDinh; j++)
+                {
+                    if (MaTran_DoThi[i, j] == MaTran_DoThi[j, i])
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         //KIỂM TRA ĐỒ THỊ LIÊN THÔNG HOẶC KHÔNG LIÊN THÔNG
         public static bool DoThiLienThong(int[,] MaTran_DoThi)
         {
-            //Viết hàm kiểm tra
+            int soluongDinh = MaTran_DoThi.GetLength(0);
+            bool[] DaGheTham = new bool[soluongDinh];
+            
+            DFS(MaTran_DoThi, DaGheTham, 0);
+            
+            for (int i = 0; i < soluongDinh; i++)
+            {
+                if (!DaGheTham[i])
+                {
+                    return false; //Nếu tồn tại ít nhất một đỉnh không được duyệt, đồ thị không liên thông
+                }
+            }
             return true;
         }
 
