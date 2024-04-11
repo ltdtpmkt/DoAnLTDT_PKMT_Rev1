@@ -18,32 +18,26 @@ namespace DA_LTDT_PKMT_1
         //CONVERT TẬP TIN THÀNH MA TRẬN
         public static int [,] ChuyenTapTinThanhMatrix(string DuongDanTapTin)
         {
-            string[] lines = File.ReadAllLines(DuongDanTapTin);
-            int n = int.Parse(lines[0]);
-            int[,] MaTran_DoThi = new int[n, n];
+            string[] lines = File.ReadAllLines(DuongDanTapTin); //Đọc dữ liệu từ tập tin
+            int n = int.Parse(lines[0]); // Lấy số đỉnh từ dòng đầu tiên
+            int[,] MaTran_DoThi = new int[n, n]; //Tạo ma trận kề [n x n]
 
-            for (int i = 2; i <= n; i++)
-            {
-                string[] Dinh = lines[i].Split(' ');
-                // Kiểm tra xem mảng Dinh có đủ phần tử để truy cập không
-                if (Dinh.Length == n)
-                {
-                    for (int j = 0; j < n; j++)
-                    {
-                        MaTran_DoThi[i - 1, j] = int.Parse(Dinh[j]);
-                    }
-                }
-                else
-                {
-                    // Xử lý trường hợp mảng Dinh không có đủ phần tử
-                    Console.WriteLine("Lỗi: Dòng thứ " + i + " không đủ phần tử.");
-                    // Gán giá trị mặc định (ví dụ: 0) cho các phần tử còn thiếu
-                    for (int j = 0; j < n; j++)
-                    {
-                        MaTran_DoThi[i - 1, j] = 0;
-                    }
-                }
-            }
+            for (int i = 1; i <= n; i++)
+{
+    string[] Dinh = lines[i].Split(' ');
+    int soluongDinhke = int.Parse(Dinh[0]);
+
+    for (int j = 1; j < Dinh.Length; j += 2)
+    {
+        int Dinhke = int.Parse(Dinh[j]);
+        int Trongso = 1; //Mặc định trọng số là 1
+        if (j + 1 < Dinh.Length)
+        {
+            Trongso = int.Parse(Dinh[j + 1]);
+        }
+        MaTran_DoThi[i - 1, Dinhke] = Trongso; //Đặt trọng số
+    }
+}
             return MaTran_DoThi;
         }
 
