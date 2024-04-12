@@ -251,8 +251,8 @@ namespace DA_LTDT_PKMT_1
 			return true;
 		}
 
-		//KIỂM TRA ĐỒ THỊ CÓ CẠNH BỘI HAY KHÔNG CÓ CẠNH BỘI
-		public static bool DoThiCoCanhBoi(int[,] MaTran_DoThi)
+	//KIỂM TRA ĐỒ THỊ CÓ CẠNH BỘI HAY KHÔNG CÓ CẠNH BỘI
+	public static bool DoThiCoCanhBoi(int[,] MaTran_DoThi)
         {
             //Viết hàm kiểm tra
             return true;
@@ -261,8 +261,15 @@ namespace DA_LTDT_PKMT_1
         //KIỂM TRA ĐỒ THỊ CÓ CẠNH KHUYÊN HAY KHÔNG CÓ CẠNH KHUYÊN
         public static bool DoThiCoCanhKhuyen(int[,] MaTran_DoThi)
         {
-            //Viết hàm kiểm tra
-            return true;
+            int SoDinh = MaTran_DoThi.GetLength(0);
+			for (int i = 0; i < SoDinh; i++)
+			{
+			    if (MaTran_DoThi[i, i] == 1)
+			    {
+					return true;
+			    }
+			}
+			return false;
         }
 
         //XỬ LÝ KIỂU NHẬP SỐ
