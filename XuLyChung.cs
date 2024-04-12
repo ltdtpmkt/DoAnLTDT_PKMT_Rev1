@@ -272,6 +272,36 @@ namespace DA_LTDT_PKMT_1
 			return false;
 		}
 
+		// TẠO MA TRẬN CỦA ĐỒ THỊ NGHỊCH ĐẢO ĐỒ THỊ TRONG TẬP TIN
+	    public static int[,] MaTranDao(int[,] MaTran)
+		{
+		    int SoDinh = MaTran.GetLength(0);
+		    int[,] MaTranDao = new int[SoDinh, SoDinh];
+		    for (int i = 0; i < SoDinh - 1; i++)
+		    {
+		        for (int j = i + 1; j < SoDinh; j++)
+		        {
+		            if (MaTran[i, j] != 0)
+		            {
+		                if (MaTran[j, i] == 0)
+		                {
+		                    MaTranDao[i, j] = 0;
+		                    MaTranDao[j, i] = MaTran[i, j];
+		                }
+		            } 
+		            else
+		            {
+		                if (MaTran[j, i] != 0)
+		                {
+		                    MaTranDao[i, j] = MaTran[j, i];
+		                    MaTranDao[j, i] = 0;
+		                }
+		            }
+		        }
+		    }
+		    return MaTranDao;
+		}
+
         //XỬ LÝ KIỂU NHẬP SỐ
         public static int NhapSo(string tenBien)
         {
