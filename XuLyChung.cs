@@ -264,7 +264,7 @@ namespace DA_LTDT_PKMT_1
 			int SoDinh = MaTran_DoThi.GetLength(0);
 			for (int i = 0; i < SoDinh; i++)
 			{
-				if (MaTran_DoThi[i, i] == 1)
+				if (MaTran_DoThi[i, i] != 0)
 				{
 					return true;
 				}
