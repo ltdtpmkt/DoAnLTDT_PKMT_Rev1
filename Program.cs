@@ -1,5 +1,6 @@
 ﻿using DA_LTDT_PKMT_1;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace LTDT_PKMT
 {
@@ -7,7 +8,9 @@ namespace LTDT_PKMT
     {
         static void Main()
         {
-            XuLyKieuString.TrangBiaDoAn();                    
+			Console.OutputEncoding = Encoding.UTF8;
+
+			XuLyKieuString.TrangBiaDoAn();                    
 
             bool ChayChuongTrinh = true;
             while (ChayChuongTrinh == true)
@@ -17,7 +20,7 @@ namespace LTDT_PKMT
                 "ĐỒ ÁN MÔN LÝ THUYẾT ĐỒ THỊ - MENU CHÍNH\n" +                             
                 "1. NHẬN DIỆN MỘT SỐ DẠNG ĐỒ THỊ ĐẶC BIỆT\n" +
                 "2. XÁC ĐỊNH THÀNH PHẦN LIÊN THÔNG MẠNH\n" +
-                "3. TÌM CÂY KHUNG NHỎ NHẤT\n" +
+                "3. TÌM CÂY KHUNG LỚN NHẤT\n" +
                 "4. TÌM ĐƯỜNG ĐI NGẮN NHẤT\n" +
                 "5. TÌM CHU TRÌNH ĐƯỜNG ĐI EULER\n" +                
                 "________________________________\n" +
@@ -40,9 +43,9 @@ namespace LTDT_PKMT
                         XuLyKieuString.QuayLaiMENU();
                         break;
                     case "3":
-                        Console.WriteLine("3. TÌM CÂY KHUNG NHỎ NHẤT");
-                        //Đoạn này là code thực thi
-                        XuLyKieuString.QuayLaiMENU();
+                        Console.WriteLine("3. TÌM CÂY KHUNG LỚN NHẤT");
+						YC3_TimCayKhungLonNhat.main();
+						XuLyKieuString.QuayLaiMENU();
                         break;
                     case "4":
                         Console.WriteLine("4. TÌM ĐƯỜNG ĐI NGẮN NHẤT");

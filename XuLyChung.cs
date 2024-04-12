@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -93,6 +94,26 @@ namespace DA_LTDT_PKMT_1
             return DanhSachKe;
         }
 
+        // CONVERT TẬP TIN THÀNH (SỐ ĐỈNH, DANH SÁCH CẠNH)
+        public static (int, List<int[]>) ChuyenTapTinThanhDanhSachCanh(string DuongDanTapTin)
+        {
+			StreamReader reader = new StreamReader(DuongDanTapTin);
+			int soDinh = int.Parse(reader.ReadLine());
+            List<int[]> danhSachCanh = new List<int[]>();
+			for (int i = 0; i < soDinh; i++)
+            {
+				string[] dong = reader.ReadLine().Split();
+				for (int j = 1; j < dong.Length; j += 2)
+				{
+					int v = int.Parse(dong[j]);
+					int w = int.Parse(dong[j + 1]);
+					danhSachCanh.Add(new int[] { i, v, w });
+				}
+			}
+			reader.Close();
+            return (soDinh, danhSachCanh);
+		}
+
         //IN MA TRẬN RA MÀN HÌNH
         public static void XuatMaTranDoThi(int[,] MaTran_DoThi)
         {
@@ -163,8 +184,25 @@ namespace DA_LTDT_PKMT_1
             return false;
         }
 
-        //KIỂM TRA ĐỒ THỊ LIÊN THÔNG HOẶC KHÔNG LIÊN THÔNG
-        public static bool DoThiLienThong(int[,] MaTran_DoThi)
+		public static bool DoThiCoHuong(List<int[]> danhSachCanh)
+		{
+			var daKiemTra = new List<(int, int)>();
+			foreach (var canh in danhSachCanh)
+            {
+				int u = canh[0];
+				int v = canh[1];
+				if (!daKiemTra.Contains((v, u)))
+                {
+					daKiemTra.Add((u, v));
+					if (!danhSachCanh.Any(canh2 => canh2[0] == v && canh2[1] == u))
+						return true;
+				}
+			}
+            return false;
+		}
+
+		//KIỂM TRA ĐỒ THỊ LIÊN THÔNG HOẶC KHÔNG LIÊN THÔNG
+		public static bool DoThiLienThong(int[,] MaTran_DoThi)
         {
             int soluongDinh = MaTran_DoThi.GetLength(0);
             bool[] DaGheTham = new bool[soluongDinh];
@@ -181,8 +219,40 @@ namespace DA_LTDT_PKMT_1
             return true;
         }
 
-        //KIỂM TRA ĐỒ THỊ CÓ CẠNH BỘI HAY KHÔNG CÓ CẠNH BỘI
-        public static bool DoThiCoCanhBoi(int[,] MaTran_DoThi)
+		public static bool DoThiLienThong(int soDinh, List<int[]> danhSachCanh)
+		{
+			void DFS(int dinh, bool[] dinhDaTham)
+			{
+				dinhDaTham[dinh] = true;
+				foreach (int[] canh in danhSachCanh)
+				{
+					if (canh[0] == dinh)
+					{
+						int dinhKe = canh[1];
+						if (!dinhDaTham[dinhKe])
+							DFS(dinhKe, dinhDaTham);
+					}
+					else if (canh[1] == dinh)
+					{
+						int dinhKe = canh[0];
+						if (!dinhDaTham[dinhKe])
+							DFS(dinhKe, dinhDaTham);
+					}
+				}
+			}
+
+			bool[] dinhDaTham = new bool[soDinh];
+			DFS(0, dinhDaTham);
+			for (int i = 0; i < soDinh; ++i)
+			{
+				if (!dinhDaTham[i])
+					return false;
+			}
+			return true;
+		}
+
+		//KIỂM TRA ĐỒ THỊ CÓ CẠNH BỘI HAY KHÔNG CÓ CẠNH BỘI
+		public static bool DoThiCoCanhBoi(int[,] MaTran_DoThi)
         {
             //Viết hàm kiểm tra
             return true;
