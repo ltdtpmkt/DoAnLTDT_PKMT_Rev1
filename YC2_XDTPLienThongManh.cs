@@ -25,9 +25,9 @@ namespace DA_LTDT_PKMT_1
                 }
                 else
                 {
-                    if (YC2_KiemTraDoThiLienThongYeu(DuongDanTapTin) == true)
+                    if (YC2_KiemTraDoThiLienThongManh(DuongDanTapTin) == true)
                     {
-                        Console.WriteLine("Đồ thị liên thông yếu");
+                        Console.WriteLine("Đồ thị liên thông mạnh");
                     }
                     else if (YC2_DoThiLienThongTungPhan(DuongDanTapTin) == true)
                     {
@@ -35,7 +35,7 @@ namespace DA_LTDT_PKMT_1
                     }
                     else
                     {
-                        Console.WriteLine("Đồ thị liên thông mạnh");
+                        Console.WriteLine("Đồ thị liên thông yếu");
                     }
                 }                
 
@@ -46,8 +46,9 @@ namespace DA_LTDT_PKMT_1
         public static bool YC2_DieuKien(string DuongDanTapTin)
         {
             int[,] MaTran_DoThi = XuLyChung.ChuyenTapTinThanhMatrix(DuongDanTapTin);
+            List<int> DanhSachKe = XuLyChung.ChuyenTapTinThanhDanhSachKe(DuongDanTapTin);
             XuLyChung.XuatMaTranDoThi(MaTran_DoThi);
-            if (XuLyChung.DoThiCoHuong(MaTran_DoThi) == true || XuLyChung.DoThiCoCanhBoi(MaTran_DoThi) == false || XuLyChung.DoThiCoCanhKhuyen(MaTran_DoThi) == false)
+            if (XuLyChung.DoThiCoHuong(MaTran_DoThi) == false || XuLyChung.DoThiCoCanhBoi(DanhSachKe) == true || XuLyChung.DoThiCoCanhKhuyen(MaTran_DoThi) == true)
             {
                 return false;
             }
@@ -56,17 +57,51 @@ namespace DA_LTDT_PKMT_1
                 return true;
             }
         }
+
+        public static bool YC2_KiemTraDoThiLienThongManh(string DuongDanTapTin)
+        {
+            int[,] MaTran = XuLyChung.ChuyenTapTinThanhMatrix(DuongDanTapTin);
+            bool[] DaGheTham = new bool[MaTran.GetLength(0)];
+            
+            XuLyChung.DFS(MaTran, DaGheTham, 0);
+            
+            for (int i = 0; i < MaTran.GetLength(0); i++)
+            {
+                if (!DaGheTham[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        
+        public static bool YC2_DoThiLienThongTungPhan(string DuongDanTapTin)
+        {
+            int[,] MaTran = XuLyChung.ChuyenTapTinThanhMatrix(DuongDanTapTin);
+            int[,] MaTranDao = XuLyChung.MaTranDao(MaTran);
+            
+            bool[] DaGheTham = new bool[MaTran.GetLength(0)];
+            bool[] DaGheThamDao = new bool[MaTran.GetLength(0)];
+            
+            XuLyChung.DFS(MaTran, DaGheTham, 0);
+            XuLyChung.DFS(MaTranDao, DaGheThamDao, 0);
+            
+            for (int i = 0; i < MaTran.GetLength(0); i++)
+            {
+                if (!DaGheTham[i] && !DaGheThamDao[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
         
         public static bool YC2_KiemTraDoThiLienThongYeu(string DuongDanTapTin)
         {
             //VIỆC CẦN LÀM: Viết hàm xử lý xác định có phải là đồ thị liên thông mạnh không ?
             return false;
         }
-        public static bool YC2_DoThiLienThongTungPhan(string DuongDanTapTin)
-        {
-            //VIỆC CẦN LÀM: Viết hàm xử lý xác định có phải thành phần liên thông yếu không ?
-            return false;
-        }
+        
         public static void YC2_XacDinhThanhPhanLienThongManh(string DuongDanTapTin)
         {
             //VIỆC CẦN LÀM: Viết hàm xác định tất cả thành phần liên thông mạnh trong đồ thị;
