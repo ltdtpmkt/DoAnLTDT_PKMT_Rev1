@@ -16,6 +16,7 @@ namespace DA_LTDT_PKMT_1
         public static void main()
         {
             string DuongDanTapTin = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "YC2_Taptin.txt");
+            List<int>[]? DanhSachKe = XuLyChung.ChuyenTapTinThanhDanhSachKe(DuongDanTapTin);
 
             if (YC2_DieuKien(DuongDanTapTin) == false)
             {
