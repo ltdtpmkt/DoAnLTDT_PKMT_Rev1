@@ -175,7 +175,7 @@ namespace DA_LTDT_PKMT_1
             {
                 for (int j = 0; j < soluongDinh; j++)
                 {
-                    if (MaTran_DoThi[i, j] == MaTran_DoThi[j, i])
+                    if ((MaTran_DoThi[i, j] == 0 && MaTran_DoThi[j, i] != 0) || (MaTran_DoThi[i, j] != 0 && MaTran_DoThi[j, i] == 0))
                     {
                         return true;
                     }
@@ -252,10 +252,19 @@ namespace DA_LTDT_PKMT_1
 		}
 
 		//KIỂM TRA ĐỒ THỊ CÓ CẠNH BỘI HAY KHÔNG CÓ CẠNH BỘI
-		public static bool DoThiCoCanhBoi(int[,] MaTran_DoThi)
+		public static bool DoThiCoCanhBoi(List<int>[] DanhSachKe)
         {
-            //Viết hàm kiểm tra
-            return true;
+            int SoDinh = DanhSachKe.Length;
+            for (int i = 0; i < SoDinh; i++)
+            {
+                DanhSachKe[i].Sort();
+                for (int j = 0; j < DanhSachKe[i].Count - 1; j++)
+                {
+                    if (DanhSachKe[i][j] == DanhSachKe[i][j + 1])
+                        return true;
+                }
+            }
+            return false;
         }
 
 		//KIỂM TRA ĐỒ THỊ CÓ CẠNH KHUYÊN HAY KHÔNG CÓ CẠNH KHUYÊN
