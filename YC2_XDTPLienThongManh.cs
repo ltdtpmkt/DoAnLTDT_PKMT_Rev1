@@ -61,7 +61,7 @@ namespace DA_LTDT_PKMT_1
         public static bool YC2_DieuKien(string DuongDanTapTin)
         {
             int[,] MaTran_DoThi = XuLyChung.ChuyenTapTinThanhMatrix(DuongDanTapTin);
-            List<int> DanhSachKe = XuLyChung.ChuyenTapTinThanhDanhSachKe(DuongDanTapTin);
+            List<int>[] DanhSachKe = XuLyChung.ChuyenTapTinThanhDanhSachKe(DuongDanTapTin);
             XuLyChung.XuatMaTranDoThi(MaTran_DoThi);
             if (XuLyChung.DoThiCoHuong(MaTran_DoThi) == false || XuLyChung.DoThiCoCanhBoi(DanhSachKe) == true || XuLyChung.DoThiCoCanhKhuyen(MaTran_DoThi) == true)
             {
